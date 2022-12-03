@@ -4,7 +4,30 @@ using namespace std;
 
 void Car_Rental(string USERNAME);
  
-class Car{
+class Toyota{
+    public:
+        string name;
+        string model;
+        int price;
+        int car_no;
+        int number_days;
+        int cleaning_fee;
+        int damages;
+    
+    public:
+        void printRecipet(int days){
+            cout<<"|Name: "<<name<<"                         |\n";
+            cout<<"|Model: "<<model<<"                                |\n";
+            cout<<"|Number of days: "<<days<<"                          |\n";
+            cout<<"|Price: "<<price*days<<"                                 |\n";
+            cout<<"|Car Number: "<<car_no<<"                           |\n";
+            cout<<"|Cleaning fee: "<<cleaning_fee<<"                           |\n";
+            cout<<"|Car damages: "<<damages<<"                             |\n";
+            cout<<"|Total: "<<price*days+cleaning_fee+damages<<"                                 |\n";
+        }
+
+};
+class Mercedes{
     public:
         string name;
         string model;
@@ -14,8 +37,21 @@ class Car{
         int cleaning_fee;
         int damages;
 
+    public:
+        void printRecipet(int days){
+            cout<<"|Name: "<<name<<"                        |\n";
+            cout<<"|Model: "<<model<<"                             |\n";
+            cout<<"|Number of days: "<<days<<"                          |\n";
+            cout<<"|Price: "<<price*days<<"                                |\n";
+            cout<<"|Car Number: "<<car_no<<"                           |\n";
+            cout<<"|Cleaning fee: "<<cleaning_fee<<"                           |\n";
+            cout<<"|Car damages: "<<damages<<"                             |\n";
+            cout<<"|Total: "<<price*days+cleaning_fee+damages<<"                                |\n";
+        }
+
+
 };
-class SUV{
+class Mercedes_Gle{
     public:
         string name;
         string model;
@@ -25,16 +61,17 @@ class SUV{
         int cleaning_fee;
         int damages;
 
-};
-class Truck{
     public:
-        string name;
-        string model;
-        int price;
-        int car_no;
-        int number_days;
-        int cleaning_fee;
-        int damages;
+        void printRecipet(int days){
+            cout<<"|Name: "<<name<<"                        |\n";
+            cout<<"|Model: "<<model<<"                           |\n";
+            cout<<"|Number of days: "<<days<<"                          |\n";
+            cout<<"|Price: "<<price*days<<"                                |\n";
+            cout<<"|Car Number: "<<car_no<<"                           |\n";
+            cout<<"|Cleaning fee: "<<cleaning_fee<<"                           |\n";
+            cout<<"|Car damages: "<<damages<<"                             |\n";
+            cout<<"|Total: "<<price*days+cleaning_fee+damages<<"                                |\n";
+        }
 
 };
 
@@ -84,73 +121,61 @@ int main()
 }
 void Car_Rental(string USERNAME)
 {
-    string car, choice;
-    int days;
-    Car car1;
-    car1.name = "Car";
-    car1.model = "A";
-    car1.price = 260;
+    int days,car;
+    Toyota car1;
+    car1.name = "Toyota Camry";
+    car1.model = "2022";
+    car1.price = 155;
     car1.car_no = 5678;
     car1.number_days = days;
     car1.cleaning_fee = 25;
-    car1.damages = 160;
+    car1.damages = 0;
 
-    SUV car2;
-    car2.name = "SUV";
-    car2.model = "B";
-    car2.price = 350;
+    Mercedes car2;
+    car2.name = "Mercedes-Benz";
+    car2.model = "C-Class";
+    car2.price = 185;
     car2.car_no = 7891;
     car2.number_days = days;
-    car2.cleaning_fee = 75;
-    car2.damages = 175;
+    car2.cleaning_fee = 55;
+    car2.damages = 0;
 
-    Truck car3;
-    car3.name = "Truck";
-    car3.model = "C";
-    car3.price = 400;
+    Mercedes_Gle car3;
+    car3.name = "Mercedes-Benz";
+    car3.model = "GLE Coupe";
+    car3.price = 225;
     car3.car_no = 3459;
     car3.number_days = days;
     car3.cleaning_fee = 90;
-    car3.damages = 225;
+    car3.damages = 0;
 
     cout<<"            Car Rental           \n";
     cout<<"////////////////////////////////////\n";
-    cout<<"Car Rental Engine: What car type of are you looking for(car,SUV,truck): ";
+    cout<<"1. 2022 Toyota Camry\n"<<"2. Mercedes-Benz C-Class\n"<<"3. Mercedes-Benz GLE Coupe\n";
+    cout<<"Car Rental Engine: Pick an option, "<<USERNAME<<": ";
     cin>>car;
+
+    while(1){
+        switch(car){
+        case 1:
+            car1.printRecipet(days);
+            break;
+        case 2:
+            car2.printRecipet(days);
+            break;
+        case 3:
+            car3.printRecipet(days);
+            break;
+        default:
+            cout<<"Car Rental Engine: Pick an option, "<<USERNAME<<": ";
+            cin>>car;
+            break;
+    }
+    }
+
     cout<<"Car Rental Engihe: How long will you rent this car: ";
     cin >> days;
-    cout<<"              Car Rental Recipet          \n";
+    cout<<"              Car Rental Invoice          \n";
     cout<<"/////////////////////////////////////////////\n";
-    if(car == "car")
-    {
-        cout<<"|Name: "<<car1.name<<"                         |\n";
-        cout<<"|Model: "<<car1.model<<"                          |\n";
-        cout<<"|Number of days: "<<days<<"                 |\n";
-        cout<<"|Price: "<<car1.price*days<<"                       |\n";
-        cout<<"|Car Number: "<<car1.car_no<<"                  |\n";
-        cout<<"|Cleaning fee: "<<car1.cleaning_fee<<"                  |\n";
-        cout<<"|Car damages: "<<car1.damages<<"                  |\n";
-        cout<<"|Total: "<<car1.price*days+car1.cleaning_fee+car1.damages<<"                       |\n";
-    }
-    else if(car == "SUV"||car=="suv"){
-        cout<<"|Name: "<<car2.name<<"                         |\n";
-        cout<<"|Model: "<<car2.model<<"                          |\n";
-        cout<<"|Number of days: "<<days<<"                 |\n";
-        cout<<"|Price: "<<car2.price*days<<"                       |\n";
-        cout<<"|Car Number: "<<car2.car_no<<"                  |\n";
-        cout<<"|Cleaning fee: "<<car2.cleaning_fee<<"                  |\n";
-        cout<<"|Car damages: "<<car2.damages<<"                  |\n";
-        cout<<"|Total: "<<car2.price*days+car1.cleaning_fee+car1.damages<<"                       |\n";
-    }
-    else if(car=="truck"||car=="TRUCK"){
-        cout<<"|Name: "<<car3.name<<"                       |\n";
-        cout<<"|Model: "<<car3.model<<"                          |\n";
-        cout<<"|Number of days: "<<days<<"                 |\n";
-        cout<<"|Price: "<<car3.price*days<<"                       |\n";
-        cout<<"|Car Number: "<<car3.car_no<<"                  |\n";
-        cout<<"|Cleaning fee: "<<car3.cleaning_fee<<"                  |\n";
-        cout<<"|Car damages: "<<car3.damages<<"                  |\n";
-        cout<<"|Total: "<<car3.price*days+car1.cleaning_fee+car1.damages<<"                       |\n";
-    }
 
 }
