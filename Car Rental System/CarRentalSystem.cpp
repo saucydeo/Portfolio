@@ -16,6 +16,8 @@ class Toyota{
     
     public:
         void printRecipet(int days){
+            cout<<"              Car Rental Invoice          \n";
+            cout<<"/////////////////////////////////////////////\n";
             cout<<"|Name: "<<name<<"                         |\n";
             cout<<"|Model: "<<model<<"                                |\n";
             cout<<"|Number of days: "<<days<<"                          |\n";
@@ -39,6 +41,8 @@ class Mercedes{
 
     public:
         void printRecipet(int days){
+            cout<<"              Car Rental Invoice          \n";
+            cout<<"/////////////////////////////////////////////\n";
             cout<<"|Name: "<<name<<"                        |\n";
             cout<<"|Model: "<<model<<"                             |\n";
             cout<<"|Number of days: "<<days<<"                          |\n";
@@ -63,6 +67,8 @@ class Mercedes_Gle{
 
     public:
         void printRecipet(int days){
+            cout<<"              Car Rental Invoice          \n";
+            cout<<"/////////////////////////////////////////////\n";
             cout<<"|Name: "<<name<<"                        |\n";
             cout<<"|Model: "<<model<<"                           |\n";
             cout<<"|Number of days: "<<days<<"                          |\n";
@@ -74,6 +80,55 @@ class Mercedes_Gle{
         }
 
 };
+class BMW{
+    public:
+        string name;
+        string model;
+        int price;
+        int car_no;
+        int number_days;
+        int cleaning_fee;
+        int damages;
+
+    public:
+        void printRecipet(int days){
+            cout<<"              Car Rental Invoice          \n";
+            cout<<"/////////////////////////////////////////////\n";
+            cout<<"|Name: "<<name<<"                             |\n";
+            cout<<"|Model: "<<model<<"                                  |\n";
+            cout<<"|Number of days: "<<days<<"                          |\n";
+            cout<<"|Price: "<<price*days<<"                                |\n";
+            cout<<"|Car Number: "<<car_no<<"                           |\n";
+            cout<<"|Cleaning fee: "<<cleaning_fee<<"                           |\n";
+            cout<<"|Car damages: "<<damages<<"                             |\n";
+            cout<<"|Total: "<<price*days+cleaning_fee+damages<<"                                |\n";
+        }
+};
+class Honda{
+    public:
+        string name;
+        string model;
+        int price;
+        int car_no;
+        int number_days;
+        int cleaning_fee;
+        int damages;
+
+    public:
+        void printRecipet(int days){
+            cout<<"              Car Rental Invoice          \n";
+            cout<<"/////////////////////////////////////////////\n";
+            cout<<"|Name: "<<name<<"                          |\n";
+            cout<<"|Model: "<<model<<"                                |\n";
+            cout<<"|Number of days: "<<days<<"                          |\n";
+            cout<<"|Price: "<<price*days<<"                                 |\n";
+            cout<<"|Car Number: "<<car_no<<"                           |\n";
+            cout<<"|Cleaning fee: "<<cleaning_fee<<"                           |\n";
+            cout<<"|Car damages: "<<damages<<"                             |\n";
+            cout<<"|Total: "<<price*days+cleaning_fee+damages<<"                                 |\n";
+        }
+};
+
 
 int main()
 {   
@@ -88,8 +143,16 @@ int main()
     while(1){
     cout<<"Username: ";
     getline(cin >> ws, USERNAME);
+    if(USERNAME=="exit"||USERNAME=="EXIT"){
+        cout<<"Thank you for using Car Rental Services!";
+        break;
+    }
     cout<<"Password: ";
     getline(cin >> ws, PASSWORD);
+    if(PASSWORD=="exit"||PASSWORD=="EXIT"){
+        cout<<"Thank you for using Car Rental Services!";
+        break;
+    }
 
     if(USERNAME == accounts[0] && PASSWORD == passwords[0])
     {
@@ -149,33 +212,61 @@ void Car_Rental(string USERNAME)
     car3.cleaning_fee = 90;
     car3.damages = 0;
 
+    BMW car4;
+    car4.name = "2023 BMW";
+    car4.model = "M3";
+    car4.price = 255;
+    car4.car_no = 8342;
+    car4.number_days = days;
+    car4.cleaning_fee = 95;
+    car4.damages = 0;
+
+    Honda car5;
+    car5.name = "Honda Civic";
+    car5.model = "2023";
+    car5.price = 160;
+    car5.car_no = 4329;
+    car5.number_days = days;
+    car5.cleaning_fee = 65;
+    car5.damages = 0;
+
     cout<<"            Car Rental           \n";
     cout<<"////////////////////////////////////\n";
-    cout<<"1. 2022 Toyota Camry\n"<<"2. Mercedes-Benz C-Class\n"<<"3. Mercedes-Benz GLE Coupe\n";
+    cout<<"1. 2022 Toyota Camry\n"<<"2. Mercedes-Benz C-Class\n"<<"3. Mercedes-Benz GLE Coupe\n"<<"4. 2023 BMW M3\n"<<"5. 2023 Honda Civic\n";
     cout<<"Car Rental Engine: Pick an option, "<<USERNAME<<": ";
     cin>>car;
 
-    while(1){
+    while(true){
         switch(car){
         case 1:
+            cout<<"Car Rental Engihe: How long will you rent this car: ";
+            cin >> days;
             car1.printRecipet(days);
-            break;
+            goto exit_loop;
         case 2:
+            cout<<"Car Rental Engihe: How long will you rent this car: ";
+            cin >> days;
             car2.printRecipet(days);
-            break;
+            goto exit_loop;
         case 3:
+            cout<<"Car Rental Engihe: How long will you rent this car: ";
+            cin >> days;
             car3.printRecipet(days);
-            break;
+            goto exit_loop;
+        case 4:
+            cout<<"Car Rental Engihe: How long will you rent this car: ";
+            cin >> days;
+            car4.printRecipet(days);
+            goto exit_loop;
+        case 5:
+            cout<<"Car Rental Engihe: How long will you rent this car: ";
+            cin >> days;
+            car5.printRecipet(days);
+            goto exit_loop;
         default:
             cout<<"Car Rental Engine: Pick an option, "<<USERNAME<<": ";
             cin>>car;
-            break;
     }
     }
-
-    cout<<"Car Rental Engihe: How long will you rent this car: ";
-    cin >> days;
-    cout<<"              Car Rental Invoice          \n";
-    cout<<"/////////////////////////////////////////////\n";
-
+    exit_loop: ;
 }
