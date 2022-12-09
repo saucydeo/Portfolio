@@ -25,9 +25,9 @@ double findHeight(double height){
     return total;
 
 }
-void Change(int age,string firstName, string lastName,){
-    string name1,name2,choice2,choice5,choice6;
-    int choice,choice3;
+void Change(int age,string firstName, string lastName,string sex, string sexual_prefrence,string intrests,char feet, char inches ){
+    string choice,name1,name2,choice2,choice5,choice6;
+    int choice3;
     double choice4;
 
     cout<<"1. Name\n";
@@ -38,53 +38,16 @@ void Change(int age,string firstName, string lastName,){
     cout<<"6. Intrests\n";
     cout<<"What would you like to change: ";
     cin>>choice;
-    while(true){
-        switch(choice){
-            case 1:
-                cout<<"What is your first name: ";
-                cin>>name1;
-                cout<<"What is your last name: ";
-                cin>>name2;
-                goto exit_loop;
-            case 2:
-                cout<<"What is your sex: ";
-                cin>>choice2;
-                goto exit_loop;
-            case 3:
-                cout<<"What is your age: ";
-                cin>>choice3;
-                goto exit_loop;
-            case 4:
-                cout<<"What is your height(inches): ";
-                cin>>choice4;
-                goto exit_loop;
-            case 5:
-                cout<<"What is your sexual prefrence: ";
-                cin>>choice5;
-                goto exit_loop;
-            case 6:
-                cout<<"What is your intrests: ";
-                cin>>choice6;
-                goto exit_loop;
-            default:
-                cout<<"Please enter a valid number.\n";
-                cout<<"What would you like to change: ";
-                cin>>choice;
-                goto exit_loop;
-                    }
-                }
-    exit_loop:;
-    user1 User;
-    User.age_ = choice3;
-    User.first_Name_ = name1;
-    User.last_Name_ = name2;
-    User.sex_ = choice2;
-    User.intrests_ = choice6;
-    User.sexual_prefrence_ = choice5;
-    User.print_Details();
+    if(choice=="1"){
+        cout<<"What is your first name: ";
+        cin>>name1;
+        cout<<"What is your last name: ";
+        cin>>name2;
+    }
+    
 
 }
-void gatheringData(string sex,string firstName, string lastName, int age, double height, string sexual_prefrence, string intrests, string change){
+void gatheringData(string sex,string firstName, string lastName, int age, double height, string sexual_prefrence, string intrests){
     cout<<"\\\\\\\\\\\\\\\\\\\\Dene's Dating Application///////////////////\n";
     cout<<"|                Welcome to Love at first glance!    |\n";
     cout<<"|What is your sex(Male/Female): ";
@@ -101,7 +64,17 @@ void gatheringData(string sex,string firstName, string lastName, int age, double
     getline(cin>>ws,sexual_prefrence);
     cout<<"|What is your hobby or intrests: ";
     getline(cin>>ws,intrests);
+}
+void findPartner();
 
+int main()
+{   
+    int age;
+    int height;
+    string sex, firstName, lastName, sexual_prefrence, intrests,change;
+    bool girls = false, boys = false;
+    
+    gatheringData(sex,firstName,lastName,age,height,sexual_prefrence,intrests);
     double true_height = findHeight(height);
     string height_true = to_string(true_height);
     char feet = height_true[0];
@@ -120,20 +93,8 @@ void gatheringData(string sex,string firstName, string lastName, int age, double
     cout<<"|Would you like to change any of your information: ";
     cin>>change;
     if(change=="yes"||change=="YES"||change=="Y"||change=="y"){
-        Change(age,firstName,lastName,sex,feet,inches,intrests,sexual_prefrence);
+        Change(age,firstName,lastName,sex,sexual_prefrence,intrests,feet,inches);
     }
-
-}
-void findPartner();
-
-int main()
-{   
-    int age;
-    int height;
-    string sex, firstName, lastName, sexual_prefrence, intrests,change;
-    bool girls = false, boys = false;
-    
-    gatheringData(sex,firstName,lastName,age,height,sexual_prefrence,intrests,change);
 
     return 0;
 }
