@@ -54,6 +54,34 @@ void Change(int age,string firstName, string lastName, string sex,string intrest
         User.sexual_prefrence_ = sexual_prefrence;
         User.print_Details();
     }
+    else if(choice=="2"){
+        cout<<"What is your sex: ";
+        cin>>choice2;
+        user1 User;
+        User.age_ = age;
+        User.first_Name_ = firstName;
+        User.last_Name_ = lastName;
+        User.sex_ = choice2;
+        User.feet_ = feet;
+        User.inches_ = inches;
+        User.intrests_ = intrests;
+        User.sexual_prefrence_ = sexual_prefrence;
+        User.print_Details();
+    }
+    else if(choice=="3"){
+        cout<<"What is your sex: ";
+        cin>>choice2;
+        user1 User;
+        User.age_ = age;
+        User.first_Name_ = firstName;
+        User.last_Name_ = lastName;
+        User.sex_ = choice2;
+        User.feet_ = feet;
+        User.inches_ = inches;
+        User.intrests_ = intrests;
+        User.sexual_prefrence_ = sexual_prefrence;
+        User.print_Details();
+    }
 
 }
 void gatheringData(string sex,string firstName, string lastName, int age, double height, string sexual_prefrence, string intrests, string change){
