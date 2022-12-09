@@ -25,7 +25,7 @@ double findHeight(double height){
     return total;
 
 }
-void Change(int age,string firstName, string lastName,string sex, string sexual_prefrence,string intrests,char feet, char inches ){
+void Change(int age,string firstName, string lastName, string sex,string intrests,string sexual_prefrence,char feet,char inches){
     string choice,name1,name2,choice2,choice5,choice6;
     int choice3;
     double choice4;
@@ -43,11 +43,20 @@ void Change(int age,string firstName, string lastName,string sex, string sexual_
         cin>>name1;
         cout<<"What is your last name: ";
         cin>>name2;
+        user1 User;
+        User.age_ = age;
+        User.first_Name_ = name1;
+        User.last_Name_ = name2;
+        User.sex_ = sex;
+        User.feet_ = feet;
+        User.inches_ = inches;
+        User.intrests_ = intrests;
+        User.sexual_prefrence_ = sexual_prefrence;
+        User.print_Details();
     }
-    
 
 }
-void gatheringData(string sex,string firstName, string lastName, int age, double height, string sexual_prefrence, string intrests){
+void gatheringData(string sex,string firstName, string lastName, int age, double height, string sexual_prefrence, string intrests, string change){
     cout<<"\\\\\\\\\\\\\\\\\\\\Dene's Dating Application///////////////////\n";
     cout<<"|                Welcome to Love at first glance!    |\n";
     cout<<"|What is your sex(Male/Female): ";
@@ -64,17 +73,7 @@ void gatheringData(string sex,string firstName, string lastName, int age, double
     getline(cin>>ws,sexual_prefrence);
     cout<<"|What is your hobby or intrests: ";
     getline(cin>>ws,intrests);
-}
-void findPartner();
 
-int main()
-{   
-    int age;
-    int height;
-    string sex, firstName, lastName, sexual_prefrence, intrests,change;
-    bool girls = false, boys = false;
-    
-    gatheringData(sex,firstName,lastName,age,height,sexual_prefrence,intrests);
     double true_height = findHeight(height);
     string height_true = to_string(true_height);
     char feet = height_true[0];
@@ -93,8 +92,20 @@ int main()
     cout<<"|Would you like to change any of your information: ";
     cin>>change;
     if(change=="yes"||change=="YES"||change=="Y"||change=="y"){
-        Change(age,firstName,lastName,sex,sexual_prefrence,intrests,feet,inches);
+        Change(age,firstName,lastName,sex,intrests,sexual_prefrence,feet,inches);
     }
+
+}
+void findPartner();
+
+int main()
+{   
+    int age;
+    int height;
+    string sex, firstName, lastName, sexual_prefrence, intrests,change;
+    bool girls = false, boys = false;
+    
+    gatheringData(sex,firstName,lastName,age,height,sexual_prefrence,intrests,change);
 
     return 0;
 }
