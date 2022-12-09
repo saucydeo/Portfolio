@@ -69,19 +69,66 @@ void Change(int age,string firstName, string lastName, string sex,string intrest
         User.print_Details();
     }
     else if(choice=="3"){
-        cout<<"What is your sex: ";
-        cin>>choice2;
+        cout<<"What is your age: ";
+        cin>>choice3;
         user1 User;
-        User.age_ = age;
+        User.age_ = choice3;
         User.first_Name_ = firstName;
         User.last_Name_ = lastName;
-        User.sex_ = choice2;
+        User.sex_ = sex;
         User.feet_ = feet;
         User.inches_ = inches;
         User.intrests_ = intrests;
         User.sexual_prefrence_ = sexual_prefrence;
         User.print_Details();
     }
+    else if(choice=="4"){
+        cout<<"What is your height: ";
+        cin>>choice4;
+        double true_height = findHeight(choice4);
+        string height_true = to_string(true_height);
+        char feet_new = height_true[0];
+        char inches_new = height_true[2];
+        user1 User;
+        User.age_ = age;
+        User.first_Name_ = firstName;
+        User.last_Name_ = lastName;
+        User.sex_ = sex;
+        User.feet_ = feet_new;
+        User.inches_ = inches_new;
+        User.intrests_ = intrests;
+        User.sexual_prefrence_ = sexual_prefrence;
+        User.print_Details();
+    }
+    else if(choice=="5"){
+        cout<<"What is your sexual prefrence: ";
+        cin>>choice5;
+        user1 User;
+        User.age_ = age;
+        User.first_Name_ = firstName;
+        User.last_Name_ = lastName;
+        User.sex_ = sex;
+        User.feet_ = feet;
+        User.inches_ = inches;
+        User.intrests_ = intrests;
+        User.sexual_prefrence_ = choice5;
+        User.print_Details();
+    }
+    else if(choice=="6"){
+        cout<<"What is your intrests: ";
+        cin>>choice6;
+        user1 User;
+        User.age_ = age;
+        User.first_Name_ = firstName;
+        User.last_Name_ = lastName;
+        User.sex_ = sex;
+        User.feet_ = feet;
+        User.inches_ = inches;
+        User.intrests_ = choice6;
+        User.sexual_prefrence_ = sexual_prefrence;
+        User.print_Details();
+    }
+    
 
 }
 void gatheringData(string sex,string firstName, string lastName, int age, double height, string sexual_prefrence, string intrests, string change){
