@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <stdlib.h>
+#include <time.h>
+
 using namespace std;
 void toUpper(std::string &str) {
     if (str.length() == 0) {
@@ -24,12 +27,12 @@ class user1{
             toUpper(sexual_prefrence_);
             toUpper(intrests_);
             cout<<"\\\\\\\\\\\\\\\\\\\\"<<first_Name_<<"'s Dating Information///////////////////\n";
-            cout<<"|Full name is: "<<first_Name_+" "+last_Name_<<"                          |\n";
-            cout<<"|Your sex is: "<<sex_<<"                                     |\n";
-            cout<<"|Your age is: "<<age_<<"                                    |\n";
-            cout<<"|Your height is: "<<feet_<<"'"<<inches_<<"                                 |\n";
-            cout<<"|Your partner's sex: "<<sexual_prefrence_<<"                            |\n";
-            cout<<"|Intrests: "<<intrests_<<"              \n";
+            cout<<"|Full name is: "<<first_Name_+" "+last_Name_<<"\n";
+            cout<<"|Your sex is: "<<sex_<<"\n";
+            cout<<"|Your age is: "<<age_<<"\n";
+            cout<<"|Your height is: "<<feet_<<"'"<<inches_<<"\n";
+            cout<<"|Your partner's sex: "<<sexual_prefrence_<<"\n";
+            cout<<"|Intrests: "<<intrests_<<"\n";
         }
 };
 double findHeight(double height){
@@ -53,7 +56,7 @@ void gatheringData(string sex,string firstName, string lastName, int age, double
     cin>>age;
     cout<<"|How tall are you(inches): ";
     cin>>height;
-    cout<<"|What is your sexual prefrence: ";
+    cout<<"|What is your sexual prefrence(Male/Female): ";
     getline(cin>>ws,sexual_prefrence);
     cout<<"|What is your hobby or intrests: ";
     getline(cin>>ws,intrests);
@@ -78,10 +81,10 @@ void gatheringData(string sex,string firstName, string lastName, int age, double
         cin>>change;
         if(change=="yes"||change=="YES"||change=="Y"||change=="y"){
                 cout<<"1. Name\n";
-                cout<<"2. Sex\n";
+                cout<<"2. Sex(Male/Female)\n";
                 cout<<"3. Age\n";
                 cout<<"4. Height\n";
-                cout<<"5. Sexual Prefrence\n";
+                cout<<"5. Sexual Prefrence(Male/Female)\n";
                 cout<<"6. Intrests\n";
                 cout<<"What would you like to change: ";
                 cin>>choice;
@@ -131,12 +134,47 @@ void gatheringData(string sex,string firstName, string lastName, int age, double
                 }
         } 
         else if(change=="no"||change=="No"||change=="NO"||change=="N"||change=="n"){
+            generateFemale();
             break;
         }
     }
 }
 void findPartner();
-void generatePartners();
+void generateFemale(){
+    string female_height, hair_color, female_sex, femalefirst_name, femalelast_name, female_intrests;
+    int age;
+    srand(time(NULL));
+
+    const string color[] = {"Blonde","Black","Brunette","Red"};
+    const string girl_Names[] = {"Olivia","Emma","Janiyah","Spohia",
+        "Mia","Evelyn","Luna","Lisa","Camila","Layla","Madison","Niyah",
+        "Ivy","Maya","Claire"};
+    const string last_Names[] = {"Williams","Johnson","Jones","Wilson"
+        "Thomas","Taylor","Moore","Thompson","Perez","Harris","Clark",
+        "Walker","Green","Adams","Diaz"};
+    const string intrests_selction[] = {"Traveling","Dancing","Singing","Journaling",
+        "Acting","Writing","Painting","Working out","Reading","Gardening",
+        "Photography","Yoga","Star Gazing"};
+    const string heights[] = {"5'0","5'1","5'3","5'4","5'5","5'6",
+        "5'7","5'8","5'9","5'10","5'11","4'11","4'10"};
+
+    int randIndex = rand() % 4;
+    int randIndex_2 = rand() % 15;
+    int randIndex_3 = rand() % 13;
+    string female_sex = "Female";
+    string hair_color = color[randIndex];
+    string femalefirst_name = girl_Names[randIndex_2];
+    string femalelast_name = last_Names[randIndex_2]; 
+    string intrests = intrests_selction[randIndex_3];
+    string female_height_ = heights[randIndex_3];
+
+    cout<<"\\\\\\\\\\\\\\\\\\\\"<<femalefirst_name<<"'s Dating Information///////////////////\n";
+    cout<<"|Name: "<<femalefirst_name+" "+femalelast_name<<endl;
+    cout<<"|Sex: "<<female_sex<<endl;
+    cout<<"|Hair color: "<<hair_color<<endl;
+    cout<<"|Height: "<<female_height<<endl;
+    cout<<"|Intrests: "<<female_intrests<<endl;
+}
 int main()
 {   
     int age;
