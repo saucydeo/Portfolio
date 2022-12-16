@@ -35,7 +35,7 @@ class user1{
             cout<<"|Intrests: "<<intrests_<<"\n";
         }
         int getAge(){
-            age_;
+            return age_;
         }
 };
 class generatedFemale{
@@ -189,6 +189,7 @@ void generateFemale(int agge){
     Female.femaleIntrests = female_intrests;
     Female.femalesHair = hair_color;
     Female.femalesSex = female_sex;
+    Female.femaleAge = age;
     Female.printFemaleDetails();
     cout<<"|Would you like to skip or date: ";
     cin>>skip;
@@ -214,6 +215,7 @@ void generateFemale(int agge){
     Female.femaleIntrests = female_intrests;
     Female.femalesHair = hair_color;
     Female.femalesSex = female_sex;
+    Female.femaleAge = age;
     Female.printFemaleDetails();
     cout<<"|Would you like to skip or date: ";
     cin>>skip;
