@@ -4,13 +4,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <random>
 
 using namespace std;
 void toUpper(std::string &str) {
     if (str.length() == 0) {
         return;
     }
- 
     str[0] = std::toupper(str[0]);
 }
 class user1{
@@ -131,7 +131,7 @@ void generateMale(int agge){
     string male_height_ = heights[randIndex_3];
     string skip;
     user1 User;
-    int age = ages[randIndex_4] + User.age_; 
+    int age = 25 + (rand() % (45-18+1)); 
 
     generatedPartner Male;
     Male.generatedFirstname = malefirst_name;
@@ -157,7 +157,7 @@ void generateMale(int agge){
     string male_height_ = heights[randIndex_3];
     string skip;
     user1 User;
-    int age = ages[randIndex_4] + User.age_;
+    int age = 25 + (rand() % (45-18+1));
 
     generatedPartner Male;
     Male.generatedFirstname = malefirst_name;
@@ -203,11 +203,11 @@ void generateFemale(int agge){
     string hair_color = color[randIndex];
     string femalefirst_name = girl_Names[randIndex_2];
     string femalelast_name = last_Names[randIndex_5]; 
-    string female_intrests = intrests_selction[randIndex_3];
+    string female_intrests = intrests_selction[randIndex_3]; 
     string female_height_ = heights[randIndex_3];
     string skip;
     user1 User;
-    int age = ages[randIndex_4] + User.age_;
+    int age = 18 + (rand() % (36-18+1));
 
     generatedPartner Female;
     Female.generatedFirstname = femalefirst_name;
@@ -233,7 +233,7 @@ void generateFemale(int agge){
     string female_height_ = heights[randIndex_3];
     string skip;
     user1 User;
-    int age = ages[randIndex_4] + User.age_;
+    int age = 25 + (rand() % (45-18+1));
 
     generatedPartner Female;
     Female.generatedFirstname = femalefirst_name;
