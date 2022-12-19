@@ -3,6 +3,7 @@
 #include <cctype>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 using namespace std;
 void toUpper(std::string &str) {
@@ -38,45 +39,68 @@ class user1{
             return age_;
         }
 };
-class generatedFemale{
+class generatedPartner{
     public:
-        string femalesSex,
-        femalesHair,femaleLastname,
-        femaleFirstname,femaleIntrests,
-        femaleHeight;
-        int femaleAge;
+        string generatedSex,
+        generatedHair,generatedLastname,
+        generatedFirstname, generatedIntrests,
+        generatedHeight;
+        int generatedAge;
 
     public:
-        void printFemaleDetails(){
-            cout<<"\\\\\\\\\\\\\\\\\\\\"<<femaleFirstname<<"'s Dating Information///////////////////\n";
-            cout<<"|Name: "<<femaleFirstname+" "+femaleLastname<<endl;
-            cout<<"|Age: "<<femaleAge<<endl;
-            cout<<"|Sex: "<<femalesSex<<endl;
-            cout<<"|Hair color: "<<femalesHair<<endl;
-            cout<<"|Height: "<<femaleHeight<<endl;
-            cout<<"|Intrests: "<<femaleIntrests<<endl;
+        void printPartnerDetails(){
+            cout<<"\\\\\\\\\\\\\\\\\\\\"<<generatedFirstname<<"'s Dating Information///////////////////\n";
+            cout<<"|Name: "<<generatedFirstname+" "+generatedLastname<<endl;
+            cout<<"|Age: "<<generatedAge<<endl;
+            cout<<"|Sex: "<<generatedSex<<endl;
+            cout<<"|Hair color: "<<generatedHair<<endl;
+            cout<<"|Height: "<<generatedHeight<<endl;
+            cout<<"|Intrests: "<<generatedIntrests<<endl;
         }
 };
-class generatedMale{
-    public:
-        string malesSex,
-        malesHair,maleLastname,
-        maleFirstname,maleIntrests,
-        maleHeight;
-        int maleAge;
+void dateSecured(string sex){
+    srand(time(NULL));
+    int message;
 
-    public:
-        void printMaleDetails(){
-            cout<<"\\\\\\\\\\\\\\\\\\\\"<<maleFirstname<<"'s Dating Information///////////////////\n";
-            cout<<"|Name: "<<maleFirstname+" "+maleLastname<<endl;
-            cout<<"|Age: "<<maleAge<<endl;
-            cout<<"|Sex: "<<malesSex<<endl;
-            cout<<"|Hair color: "<<malesHair<<endl;
-            cout<<"|Height: "<<maleHeight<<endl;
-            cout<<"|Intrests: "<<maleIntrests<<endl;
-        }
-};
-void dateSecured();
+    cout<<"\\\\\\\\\\\\\\\\\\\\Direct Messages///////////////////\n";
+    cout<<"You said: Hey\n";
+    if(sex=="Female"){
+        sleep(2);
+        cout<<"She said: Hello\n";
+        sleep(2);
+        cout<<"You said: You are very pretty\n";
+        sleep(1);
+        cout<<"She said: Thank you\n";
+        sleep(1);
+        cout<<"She said: You're very handsome lol\n";
+        sleep(2);
+        cout<<"You said: Would you like to go on a date?\n";
+        sleep(3);
+        cout<<"She said: Sounds like a plan lol\n";
+        sleep(2);
+        cout<<"You said: I'll see you there!";
+        cout<<"\\\\\\\\\\\\\\\\\\\\Congrulations!///////////////////\n";
+    }
+    if(sex=="Male"){
+        sleep(2);
+        cout<<"He said: Yo\n";
+        sleep(1);
+        cout<<"He said: You're beauty is mesmerizing\n";
+        sleep(1);
+        cout<<"You said: Awww, Thank you\n";
+        sleep(1);
+        cout<<"You said: You're handsome yourself\n";
+        sleep(3);
+        cout<<"He said: May I take you on a date princess? \n";
+        sleep(1);
+        cout<<"You said: Of course.\n";
+        sleep(1);
+        cout<<"He said: I'll see you there miss.";
+        cout<<"\\\\\\\\\\\\\\\\\\\\Congrulations!///////////////////\n";
+    }
+    
+    
+}
 void generateMale(int agge){
     srand(time(NULL));
 
@@ -109,14 +133,15 @@ void generateMale(int agge){
     user1 User;
     int age = ages[randIndex_4] + User.age_; 
 
-    generatedMale Male;
-    Male.maleFirstname = malefirst_name;
-    Male.maleLastname = malelast_name;
-    Male.maleHeight = male_height_;
-    Male.maleIntrests = male_intrests;
-    Male.malesHair = hair_color;
-    Male.malesSex = male_sex;
-    Male.printMaleDetails();
+    generatedPartner Male;
+    Male.generatedFirstname = malefirst_name;
+    Male.generatedLastname = malelast_name;
+    Male.generatedHeight = male_height_;
+    Male.generatedIntrests = male_intrests;
+    Male.generatedAge = age;
+    Male.generatedHair = hair_color;
+    Male.generatedSex = male_sex;
+    Male.printPartnerDetails();
     cout<<"|Would you like to skip or date: ";
     cin>>skip;
     if(skip=="skip"||skip=="Skip"||skip=="SKIP"){
@@ -134,18 +159,20 @@ void generateMale(int agge){
     user1 User;
     int age = ages[randIndex_4] + User.age_;
 
-    generatedMale Male;
-    Male.maleFirstname = malefirst_name;
-    Male.maleLastname = malelast_name;
-    Male.maleHeight = male_height_;
-    Male.maleIntrests = male_intrests;
-    Male.malesHair = hair_color;
-    Male.malesSex = male_sex;
-    Male.printMaleDetails();
+    generatedPartner Male;
+    Male.generatedFirstname = malefirst_name;
+    Male.generatedLastname = malelast_name;
+    Male.generatedHeight = male_height_;
+    Male.generatedAge = age;
+    Male.generatedIntrests = male_intrests;
+    Male.generatedHair = hair_color;
+    Male.generatedSex = male_sex;
+    Male.printPartnerDetails();
     cout<<"|Would you like to skip or date: ";
     cin>>skip;
     }
     else if(skip=="date"||skip=="Date"||skip=="DATE"){
+        dateSecured(male_sex);
         break;
     }
     }
@@ -182,15 +209,15 @@ void generateFemale(int agge){
     user1 User;
     int age = ages[randIndex_4] + User.age_;
 
-    generatedFemale Female;
-    Female.femaleFirstname = femalefirst_name;
-    Female.femaleLastname = femalelast_name;
-    Female.femaleHeight = female_height_;
-    Female.femaleIntrests = female_intrests;
-    Female.femalesHair = hair_color;
-    Female.femalesSex = female_sex;
-    Female.femaleAge = age;
-    Female.printFemaleDetails();
+    generatedPartner Female;
+    Female.generatedFirstname = femalefirst_name;
+    Female.generatedLastname = femalelast_name;
+    Female.generatedHeight = female_height_;
+    Female.generatedIntrests = female_intrests;
+    Female.generatedHair = hair_color;
+    Female.generatedAge = age;
+    Female.generatedSex = female_sex;
+    Female.printPartnerDetails();
     cout<<"|Would you like to skip or date: ";
     cin>>skip;
     if(skip=="skip"||skip=="Skip"||skip=="SKIP"){
@@ -208,19 +235,20 @@ void generateFemale(int agge){
     user1 User;
     int age = ages[randIndex_4] + User.age_;
 
-    generatedFemale Female;
-    Female.femaleFirstname = femalefirst_name;
-    Female.femaleLastname = femalelast_name;
-    Female.femaleHeight = female_height_;
-    Female.femaleIntrests = female_intrests;
-    Female.femalesHair = hair_color;
-    Female.femalesSex = female_sex;
-    Female.femaleAge = age;
-    Female.printFemaleDetails();
+    generatedPartner Female;
+    Female.generatedFirstname = femalefirst_name;
+    Female.generatedLastname = femalelast_name;
+    Female.generatedHeight = female_height_;
+    Female.generatedIntrests = female_intrests;
+    Female.generatedHair = hair_color;
+    Female.generatedAge = age;
+    Female.generatedSex = female_sex;
+    Female.printPartnerDetails();
     cout<<"|Would you like to skip or date: ";
     cin>>skip;
     }
     else if(skip=="date"||skip=="Date"||skip=="DATE"){
+        dateSecured(female_sex);
         break;
     }
     } 
