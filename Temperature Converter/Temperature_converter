@@ -1,1 +1,50 @@
+#include <iostream>
+using namespace std;
 
+int convert_Celsius(int degree){
+    return (degree * 1.8) + 32;
+}
+int convert_Fahrenheit(int degree){
+    return (degree - 32) *.5556;
+}
+int main(){
+    int temperature;
+    int degree;         
+    bool celsius = false;
+    bool fahrenheit = false;
+
+    cout<<"\\\\\\\\\\\\\\\\\\\\Temperature Converter////////////////////\n";
+    cout<<"1. Celsius\n";
+    cout<<"2. Fahrenheit\n";
+    cout<<"What temperature are you inputing: ";
+    cin>>temperature;
+    while(true){
+        switch(temperature){
+            case 1:
+                celsius = true;
+                goto exit_loop;
+            case 2:
+                fahrenheit =  true;
+                goto exit_loop;
+            default:
+                cout<<"1. Celsius\n";
+                cout<<"2. Fahrenheit\n";
+                cout<<"What temperature are you inputing: ";
+                cin>>temperature;
+                goto exit_loop;
+        }
+    }
+    exit_loop:;
+    cout<<"What is the degree: ";
+    cin>>degree;
+    if(celsius==true){ 
+        int change_celsius = convert_Celsius(degree);
+        cout<<"Your degree in Fahrenheit is: "<<change_celsius;
+    }
+    if(fahrenheit==true){ 
+        int change_fahrenheit = convert_Fahrenheit(degree);
+        cout<<"Your degree in Celsius is: "<<change_fahrenheit;
+    }
+
+    return 0;
+}
