@@ -1,1 +1,40 @@
+#include <iostream>
+using namespace std;
 
+int getDigit(const int number){
+    return number % 10 + (number / 10 %10);
+}
+int sumOddDigits(const string cardNumber){
+    int sum = 0;
+
+    for(int i = cardNumber.size() - 1; i>= 0; i-=2){
+        sum += cardNumber[i] - '0';
+    }
+    return sum;
+}
+int sumEvenDigits(const string cardNumber){
+    int sum = 0;
+
+    for(int i = cardNumber.size() - 2; i>= 0; i-=2){
+        sum += getDigit((cardNumber[i] - '0')*2);
+    }
+    return sum;
+}
+
+int main(){
+    string cCard;
+    int result = 0;
+
+    cout<<"\\\\\\\\\\\\\\\\\\\\Credit Card Validator////////////////////\n";
+    cout<<"Enter credit card number: ";
+    cin>>cCard;
+
+    result = sumEvenDigits(cCard) + sumOddDigits(cCard);
+    if(result % 10 == 0){
+        cout<<"Credit Card is valid.";
+    }
+    else{
+        cout<<"Credit Card is not valid.";
+    }
+    return 0;
+}
