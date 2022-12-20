@@ -20,14 +20,22 @@ int main(){
     cout<<"How much money are you saving/investing: ";
     cin>>saving_investing;
     leftover = monthlyIncome - bills - food - utilities - insurance - transportation - saving_investing; 
-
+    cout<<"\\\\\\\\\\\\\\\\\\\\Your Stats////////////////////\n";
     cout<<"You spend "<< bills / monthlyIncome * 100 <<" percent on bills.\n";
     cout<<"You spend "<< food / monthlyIncome * 100 <<" percent on food.\n";
     cout<<"You spend "<< utilities / monthlyIncome * 100 <<" percent on utilites.\n";
     cout<<"You spend "<< insurance / monthlyIncome * 100 <<" percent on insurance.\n";
     cout<<"You spend "<< transportation / monthlyIncome * 100 <<" percent on transportation.\n";
     cout<<"You spend "<< saving_investing / monthlyIncome * 100 <<" percent on saving/investing.\n";
-    cout<<"You have $"<<leftover<<" left over.";
+    cout<<"You have $"<<leftover<<" left over.\n";
+    cout<<"\\\\\\\\\\\\\\\\\\\\Correction////////////////////\n";
+    cout<<"You should be spending at most $"<<monthlyIncome * 0.25<<" on bills.\n";
+    cout<<"You should be spending at most $"<<monthlyIncome * 0.15<<" on food.\n";
+    cout<<"You should be spending at most $"<<monthlyIncome * 0.10<<" on utilites.\n";
+    cout<<"You should be spending at most $"<<monthlyIncome * 0.10<<" on insurance.\n";
+    cout<<"You should be spending at most $"<<monthlyIncome * 0.15<<" on transportation.\n";
+    cout<<"You should be spending at most $"<<monthlyIncome * 0.15<<" on saving/investing.\n";
+    
 
     return 0;
 }
