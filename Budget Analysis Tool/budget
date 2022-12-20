@@ -1,1 +1,33 @@
+#include <iostream>
+using namespace std;
 
+int main(){
+    double monthlyIncome,bills,food,utilities,insurance,transportation,saving_investing,leftover;
+
+    cout<<"\\\\\\\\\\\\\\\\\\\\Budget Manager////////////////////\n";
+    cout<<"How much money do you make in a month: ";
+    cin>>monthlyIncome;
+    cout<<"How much money do you spend on bills: ";
+    cin>>bills;
+    cout<<"How much money do you spend on food: ";
+    cin>>food;
+    cout<<"How much money do you spend on utilities: ";
+    cin>>utilities;
+    cout<<"How much money is your insurance: ";
+    cin>>insurance;
+    cout<<"How much is your transportation: ";
+    cin>>transportation;
+    cout<<"How much money are you saving/investing: ";
+    cin>>saving_investing;
+    leftover = monthlyIncome - bills - food - utilities - insurance - transportation - saving_investing; 
+
+    cout<<"You spend "<< bills / monthlyIncome * 100 <<" percent on bills.\n";
+    cout<<"You spend "<< food / monthlyIncome * 100 <<" percent on food.\n";
+    cout<<"You spend "<< utilities / monthlyIncome * 100 <<" percent on utilites.\n";
+    cout<<"You spend "<< insurance / monthlyIncome * 100 <<" percent on insurance.\n";
+    cout<<"You spend "<< transportation / monthlyIncome * 100 <<" percent on transportation.\n";
+    cout<<"You spend "<< saving_investing / monthlyIncome * 100 <<" percent on saving/investing.\n";
+    cout<<"You have $"<<leftover<<" left over.";
+
+    return 0;
+}
