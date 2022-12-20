@@ -1,1 +1,140 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
 
+bool casinoGame(bool won){
+    srand(time(NULL));
+    const string slot1[] = {"<3",":)",":(","7","</3","XD","^_^"};
+    const string slot2[] = {"<3",":)",":(","7","</3","XD","^_^"};
+    const string slot3[] = {"<3",":)",":(","7","</3","XD","^_^"};
+    int randIndex1 = rand() % 7;
+    int randIndex2 = rand() % 7;
+    int randIndex3 = rand() % 7;
+    string row1 = slot1[randIndex1];
+    string row2 = slot1[randIndex2];
+    string row3 = slot1[randIndex3];
+
+    cout<<row1<<endl<<row2<<endl<<row3<<endl;
+    if(row1 == "<3" && row2 == "<3" && row3 == "<3"){
+        return won = true;
+    }
+    else if(row1 == ":)" && row2 == ":)" && row3 == ":)"){
+        return won = true;
+    }
+    else if(row1 == ":(" && row2 == ":(" && row3 == ":("){
+        return won = true;
+    }
+    else if(row1 == "7" && row2 == "7" && row3 == "7"){
+        return won = true;
+    }
+    else if(row1 == "</3" && row2 == "</3" && row3 == "</3"){
+        return won = true;
+    }
+    else if(row1 == "XD" && row2 == "XD" && row3 == "XD"){
+        return won = true;
+    }
+    else if(row1 == "^_^" && row2 == "^_^" && row3 == "^_^"){
+        return won = true;
+    }
+}
+int main(){
+    int bet;
+    double balance = 0.00,upBalance;
+    bool won = false;
+    string username,addBalance,playAgain;
+
+    cout<<"\\\\\\\\\\\\\\\\\\\\Casino Guessing Game////////////////////\n";
+    cout<<"Casino Engine: What is your username? ";
+    getline(cin >> ws,username);
+    cout<<"Casino Engine: Welcome, "<<username<<"!\n";
+    cout<<"Casino Engine: Your balance is $"<<balance<<endl;
+    cout<<"Casino Engine: Would you like to add money to your balance? ";
+    cin>>addBalance;
+    if(addBalance=="Yes"||addBalance=="yes"){
+        cout<<"Casino Engine: How much would you like to add? ";
+        cin>>upBalance;
+        balance += upBalance;
+        cout<<"Casino Engine: Your balance is now $"<<balance<<endl;
+    }
+    while(true){
+        cout<<"Casino Engine: How much money would you like to bet? ";
+        cin>>bet;
+        if(bet>balance){
+            cout<<"Casino Engine: You have insufficient funds please bet according to your balance.\n";
+            cout<<"Casino Engine: Would you like to add more to your balance? ";
+            cin>>addBalance;
+            if(addBalance=="Yes"||addBalance=="yes"){
+                cout<<"Casino Engine: How much would you like to add? ";
+                cin>>upBalance;
+                balance += upBalance;
+                cout<<"Casino Engine: Your balance is now $"<<balance<<endl;
+            }
+            cout<<"Casino Engine: How much money would you like to bet? ";
+            cin>>bet;
+            casinoGame(won);
+            if(won==true){
+                cout<<"Casino Engine: Congrats, You won!"<<endl;
+                cout<<"Casino Engine: You've won $"<<bet;
+                bet * 2;
+                balance =+ bet;
+                cout<<"Casino Engine: Your balance is now $"<<balance<<endl;
+                if(playAgain=="Yes"||playAgain=="yes"){
+                    continue;
+                }
+                else{
+                    cout<<"Thanks for playing!"<<endl;
+                }
+                break;
+            }
+            else if(won==false){
+                cout<<"Casino Engine: Sorry, you lost."<<endl;
+                balance -= bet;
+                cout<<"Casino Engine: Your balance is now $"<< balance<<endl;
+                cout<<"Casino Engine: Would you like to play again? ";
+                cin>>playAgain;
+                if(playAgain=="Yes"||playAgain=="yes"){
+                    continue;
+                }
+                else{
+                    cout<<"Thanks for playing!"<<endl;
+                    break;
+                }
+            }
+            break;
+        }
+        else{
+            casinoGame(won);
+            if(won==true){
+                cout<<"Casino Engine: Congrats, You won!"<<endl;
+                cout<<"Casino Engine: You've won $"<<bet;
+                bet * 2;
+                balance =+ bet;
+                cout<<"Casino Engine: Your balance is now $"<<balance<<endl;
+                if(playAgain=="Yes"||playAgain=="yes"){
+                    continue;
+                }
+                else{
+                    cout<<"Thanks for playing!"<<endl;
+                }
+                break;
+            }
+            else if(won==false){
+                cout<<"Casino Engine: Sorry, you lost."<<endl;
+                balance -= bet;
+                cout<<"Casino Engine: Your balance is now $"<< balance<<endl;
+                cout<<"Casino Engine: Would you like to play again? ";
+                cin>>playAgain;
+                if(playAgain=="Yes"||playAgain=="yes"){
+                    continue;
+                }
+                else{
+                    cout<<"Thanks for playing!"<<endl;
+                    break;
+                }
+            }
+        }
+    }
+
+    return 0;
+}
